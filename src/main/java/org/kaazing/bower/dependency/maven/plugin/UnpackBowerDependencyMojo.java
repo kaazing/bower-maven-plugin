@@ -65,7 +65,7 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
      */
     private File outputDir;
 
-    static final Pattern SEMVER_SIMPLE_VERSION_MATCHER = compile("\\d+\\.\\d+\\.\\d+.*");
+    static final Pattern SEMVER_SIMPLE_VERSION_MATCHER = compile("\\d+\\.\\d+\\.\\d+(-.*)?");
     static final Pattern SHORTHAND_PATTERN = compile("(?<owner>[^/]+)\\/(?<package>[^/]+)");
     Log log = getLog();
 
