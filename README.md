@@ -2,12 +2,12 @@
 
 Plugin to handle bower dependencies in Maven
 
-Usage
+Usage to unpack dependencies into target/bower-dependencies
 ```
 <plugin>
     <groupId>org.kaazing</groupId>
-    <artifactId>bower-dependency-maven-plugin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>unpack-bower-dependency-maven-plugin</artifactId>
+    <version>1.0.1</version>
     <executions>
         <execution>
             <goals>
@@ -18,13 +18,18 @@ Usage
     <configuration>
         <bowerDependencies>
             <bowerDependency>
+                <!-- name will unpack to target/bower-dependencies/jquery-->
                 <name>jquery</name>
+                <!-- location of the git url -->
                 <location>https://github.com/jquery/jquery</location>
+                <!-- Version to get from the tags -->
                 <version>2.0.3</version>
             </bowerDependency>
             <bowerDependency>
                 <name>command-center</name>
-                <location>https://github.com/kaazing/command-center</location>
+                <!-- location can be bower short hand of owner/repo -->
+                <location>kaazing/command-center</location>
+                <!-- version ranges can be done using Maven version ranges -->
                 <version>[1.0.0.0,2.0.0.0]</version>
             </bowerDependency>
         </bowerDependencies>
