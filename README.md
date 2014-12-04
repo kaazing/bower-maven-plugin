@@ -1,6 +1,6 @@
 # Kaazing bower-dependency-maven-plugin
 
-Plugin to handle bower dependencies in Maven, 
+Plugin to handle bower dependencies in Maven
 
 Usage to unpack dependencies into target/bower-dependencies
 ```
