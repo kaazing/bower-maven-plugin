@@ -6,7 +6,7 @@ Usage
 ```
 <plugin>
     <groupId>org.kaazing</groupId>
-    <artifactId>bower-dependency-maven-plugin</artifactId>
+    <artifactId>dependency-bower-maven-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <executions>
         <execution>
