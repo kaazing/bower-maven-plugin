@@ -1,0 +1,135 @@
+This product depends on JavaEWAH 0.7
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (Apache 2)
+	Homepage:	http://code.google.com/p/javaewah/
+
+This product depends on classworlds 1.1-alpha-2
+
+	License:	http://classworlds.codehaus.org/license.html (Classworlds License)
+	Homepage:	http://classworlds.codehaus.org/
+
+This product depends on Commons Codec 1.4
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://commons.apache.org/codec/
+
+This product depends on Commons Logging 1.1
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://commons.apache.org/logging
+
+This product depends on HttpClient 4.1
+
+	License:	LICENSE.txt (Apache License)
+	Homepage:	http://hc.apache.org/httpcomponents-client
+
+This product depends on HttpCore 4.1
+
+	License:	LICENSE.txt (Apache License)
+	Homepage:	http://hc.apache.org/httpcomponents-core-ga
+
+This product depends on Java SemVer 0.8
+
+	License:	http://www.opensource.org/licenses/mit-license.php (The MIT License)
+	Homepage:	https://github.com/zafarkhaja/java-semver
+
+This product depends on Java Native Access 3.4
+
+	License:	http://creativecommons.org/licenses/LGPL/2.1/ (LGPL, version 2.1)
+	Homepage:	https://github.com/twall/jna
+
+This product depends on jsch-agent-proxy core library 0.0
+
+	License:	http://www.jcraft.com/jsch-agent-proxy/LICENSE.txt (Revised BSD)
+	Homepage:	http://www.jcraft.com/jsch-agent-proxy/jsch.agentproxy.core/
+
+This product depends on a library to use jsch-agent-proxy with JSch 0.0
+
+	License:	http://www.jcraft.com/jsch-agent-proxy/LICENSE.txt (Revised BSD)
+	Homepage:	http://www.jcraft.com/jsch-agent-proxy/jsch.agentproxy.jsch/
+
+This product depends on a connector for ssh-agent 0.0
+
+	License:	http://www.jcraft.com/jsch-agent-proxy/LICENSE.txt (Revised BSD)
+	Homepage:	http://www.jcraft.com/jsch-agent-proxy/jsch.agentproxy.sshagent/
+
+This product depends on an implementation of USocketFactory using JNA 0.0
+
+	License:	http://www.jcraft.com/jsch-agent-proxy/LICENSE.txt (Revised BSD)
+	Homepage:	http://www.jcraft.com/jsch-agent-proxy/jsch.agentproxy.usocket-jna/
+
+This product depends on JSch 0.1
+
+	License:	http://www.jcraft.com/jsch/LICENSE.txt (Revised BSD)
+	Homepage:	http://www.jcraft.com/jsch/
+
+This product depends on Maven Artifact Manager 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org
+
+This product depends on Maven Artifact 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven-artifact/
+
+This product depends on Maven Model 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven-model/
+
+This product depends on Maven Plugin API 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven2/maven-plugin-api/
+
+This product depends on Maven Profile Model 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven-profile/
+
+This product depends on Maven Project Builder 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven-project/
+
+This product depends on Maven Repository Metadata Model 2.0
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/maven-repository-metadata/
+
+This product depends on Apache ServiceMix :: Bundles :: jsch 0.1
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://servicemix.apache.org/bundles-pom/org.apache.servicemix.bundles.jsch/
+
+This product depends on JGit - Console User Interface 3.3
+
+	License:	null (Eclipse Distribution License (New BSD License))
+	Homepage:	http://www.eclipse.org/jgit//org.eclipse.jgit.console
+
+This product depends on JGit - Core 3.3
+
+	License:	null (Eclipse Distribution License (New BSD License))
+	Homepage:	http://www.eclipse.org/jgit//org.eclipse.jgit
+
+This product depends on Java Native Access Platform 3.4
+
+	License:	http://creativecommons.org/licenses/LGPL/2.1/ (LGPL, version 2.1)
+	Homepage:	https://github.com/twall/jna
+
+This product depends on Default Plexus Container 1.0-alpha-9
+
+	License:	http://plexus.codehaus.org/license.html (Plexus License)
+	Homepage:	http://plexus.codehaus.org
+
+This product depends on Plexus Common Utilities 1.1
+
+	License:	http://plexus.codehaus.org/plexus-utils/license.html (Plexus License)
+	Homepage:	http://plexus.codehaus.org
+
+This product depends on Maven Wagon API 1.0-alpha-6
+
+	License:	http://www.apache.org/licenses/LICENSE-2.0.txt (The Apache Software License, Version 2.0)
+	Homepage:	http://maven.apache.org/wagon/wagon-provider-api/
+

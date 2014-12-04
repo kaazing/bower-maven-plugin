@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.kaazing</groupId>
+        <artifactId>community</artifactId>
+        <version>1.2</version>
+    </parent>
+
+    <artifactId>bower-dependency-maven-plugin-test</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>Maven Versions Plugin</name>
+
+    <url>https://github.com/kaazing/bower-dependency-maven-plugin.git</url>
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>git@github.com:kaazing/bower-dependency-maven-plugin.git</url>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.kaazing</groupId>
+                <artifactId>bower-dependency-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <bowerDependencies>
+                        <bowerDependency>
+                            <name>jquery</name>
+                            <location>https://github.com/jquery/jquery</location>
+                            <version>2.0.3</version>
+                        </bowerDependency>
+                        <bowerDependency>
+                            <name>command-center</name>
+                            <location>https://github.com/kaazing/command-center</location>
+                            <version>[1.0.0.0,2.0.0.0]</version>
+                        </bowerDependency>
+                    </bowerDependencies>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+  

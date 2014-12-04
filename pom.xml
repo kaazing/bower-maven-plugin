@@ -1,0 +1,200 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.kaazing</groupId>
+        <artifactId>community</artifactId>
+        <version>1.2</version>
+    </parent>
+
+    <artifactId>bower-dependency-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+    <version>1.0.0</version>
+
+    <name>Bower Dependency Maven Plugin</name>
+    <description>Plugin for dealing with bower dependencies from Maven</description>
+
+    <url>https://github.com/kaazing/bower-dependency-maven-plugin.git</url>
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>git@github.com:kaazing/bower-dependency-maven-plugin.git</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-project</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.zafarkhaja</groupId>
+            <artifactId>java-semver</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit.console</artifactId>
+            <version>${jgit.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.jcraft</groupId>
+                    <artifactId>jsch</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>${jgit.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.jcraft</groupId>
+                    <artifactId>jsch</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch.agentproxy.jsch</artifactId>
+            <version>${jsch.agent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch.agentproxy.usocket-jna</artifactId>
+            <version>${jsch.agent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch.agentproxy.sshagent</artifactId>
+            <version>${jsch.agent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.jsch</artifactId>
+            <version>0.1.49_1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>[4.10,5.0)</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <goalPrefix>kzversions</goalPrefix>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.kaazing</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.0.0.17</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>verify-notice</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Project hints go here -->
+                    <projectHints>
+                        <projectDescription>
+                            <projectName>Classworlds</projectName>
+                            <licenseName>Classworlds License</licenseName>
+                            <licenseUrl>http://classworlds.codehaus.org/license.html</licenseUrl>
+                            <homePage>http://classworlds.codehaus.org</homePage>
+                            <version>1.1</version>
+                        </projectDescription>
+                        <projectDescription>
+                            <projectName>Default Plexus Container</projectName>
+                            <licenseName>Plexus License</licenseName>
+                            <licenseUrl>http://plexus.codehaus.org/license.html</licenseUrl>
+                            <homePage>http://plexus.codehaus.org</homePage>
+                            <version>1.0</version>
+                        </projectDescription>
+                        <projectDescription>
+                            <projectName>Plexus Common Utilities</projectName>
+                            <licenseName>Plexus License</licenseName>
+                            <licenseUrl>http://plexus.codehaus.org/plexus-utils/license.html</licenseUrl>
+                            <homePage>http://plexus.codehaus.org</homePage>
+                            <version>1.1</version>
+                        </projectDescription>
+                        <projectDescription>
+                            <projectName>Maven Wagon API</projectName>
+                            <homePage>http://maven.apache.org/wagon/wagon-provider-api/</homePage>
+                        </projectDescription>
+                    </projectHints>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <properties>
+        <jgit.version>3.3.1.201403241930-r</jgit.version>
+        <jsch.agent.version>0.0.7</jsch.agent.version>
+    </properties>
+</project>
+  
