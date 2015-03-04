@@ -71,6 +71,9 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException {
 
+        if (outputDir.exists()) {
+            deleteFully(outputDir);
+        }
         outputDir.mkdirs();
 
         for (BowerDependency bowerDependency : bowerDependencies) {
@@ -110,8 +113,8 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
         Matcher locationMatcher = SHORTHAND_PATTERN.matcher(location);
         boolean isShortHand = locationMatcher.matches();
         if (isShortHand) {
-            location = String.format("https://github.com/%s/%s", locationMatcher.group("owner"),
-                    locationMatcher.group("package"));
+            location =
+                    String.format("https://github.com/%s/%s", locationMatcher.group("owner"), locationMatcher.group("package"));
         }
         return location;
     }
@@ -145,13 +148,14 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
         for (Ref tag : tagList) {
             String tagVersion = tag.getName().toString().replace(tagPrefix, "");
             log.debug("Found tag version \"" + tagVersion + "\" from tag with name \"" + tag.getName() + "\"");
-            try{
+            try {
                 // Check that it follows SEMVER
                 Version.valueOf(tagVersion);
                 // If it does add it to available versions
                 availableVersions.add(new DefaultArtifactVersion(tagVersion));
-            }catch(UnexpectedCharacterException e){
-                log.warn("Found tag version \"" + tagVersion + "\" from tag with name \"" + tag.getName() + "\" that does not match semver spec");
+            } catch (UnexpectedCharacterException e) {
+                log.warn("Found tag version \"" + tagVersion + "\" from tag with name \"" + tag.getName()
+                        + "\" that does not match semver spec");
             }
         }
         Collections.sort(availableVersions);
@@ -160,7 +164,7 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
         boolean isRange = !matcher.matches();
 
         String tag = null;
-        
+
         if (isRange) {
             log.info("version is a range");
             VersionRange versionRange;
@@ -198,5 +202,14 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
         }
         tag = "tags/" + tag;
         return tag;
+    }
+
+    public void deleteFully(File file) {
+        if (file.isDirectory()) {
+            for (File child : file.listFiles()) {
+                deleteFully(child);
+            }
+        }
+        file.delete();
     }
 }
