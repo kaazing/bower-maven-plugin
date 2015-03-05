@@ -1,5 +1,10 @@
 # Kaazing bower-dependency-maven-plugin
 
+[![Build Status][build-status-image]][build-status]
+
+[build-status-image]: https://travis-ci.org/kaazing/bower-dependency-maven-plugin.svg?branch=develop
+[build-status]: https://travis-ci.org/kaazing/bower-dependency-maven-plugin
+
 Plugin to handle bower dependencies in Maven
 
 Usage to unpack dependencies into target/bower-dependencies
