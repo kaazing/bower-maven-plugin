@@ -9,7 +9,7 @@
 
     <artifactId>unpack-bower-dependency-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <name>Unpack Bower Dependency Maven Plugin</name>
     <description>Plugin for dealing with bower dependencies from Maven</description>
