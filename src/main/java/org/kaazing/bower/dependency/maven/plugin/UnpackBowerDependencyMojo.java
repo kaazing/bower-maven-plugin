@@ -71,10 +71,10 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException {
 
-        if (outputDir.exists()) {
-            deleteFully(outputDir);
+        if (getOutputDir().exists()) {
+            deleteFully(getOutputDir());
         }
-        outputDir.mkdirs();
+        getOutputDir().mkdirs();
 
         for (BowerDependency bowerDependency : bowerDependencies) {
 
@@ -85,7 +85,7 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
             location = parseGitLocation(location);
             log.debug("Git Repo is at " + location);
 
-            Git repo = checkoutGitRepo(new File(outputDir, name), location);
+            Git repo = checkoutGitRepo(new File(getOutputDir(), name), location);
 
             List<Ref> tagList;
             try {
@@ -211,5 +211,25 @@ public class UnpackBowerDependencyMojo extends AbstractMojo {
             }
         }
         file.delete();
+    }
+
+    /**
+     * For Testing
+     * @return
+     */
+    void setBowerDependencies(List<BowerDependency> bowerDependencies) {
+        this.bowerDependencies = bowerDependencies;
+    }
+
+    private File getOutputDir() {
+        return outputDir;
+    }
+
+    /**
+     * For Testing
+     * @param outputDir
+     */
+    void setOutputDir(File outputDir) {
+        this.outputDir = outputDir;
     }
 }

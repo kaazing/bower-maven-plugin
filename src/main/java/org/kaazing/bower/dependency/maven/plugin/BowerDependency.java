@@ -42,4 +42,24 @@ public class BowerDependency {
         return location;
     }
 
+    /**
+     * For Testing
+     * @param name
+     */
+    void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * For Testing
+     * @param version
+     */
+    void setVersion(String version) {
+        this.version = version;
+    }
+
+    void setLocation(String location) {
+        this.location = location;
+    }
+
 }
