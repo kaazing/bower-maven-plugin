@@ -21,8 +21,12 @@
 
 package org.kaazing.bower.dependency.maven.plugin;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 
+import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -52,5 +56,21 @@ public class UnpackBowerDependencyMojoTest {
         Assert.assertTrue(isShorthand);
         Assert.assertEquals("kaazing", matcher.group("owner"));
         Assert.assertEquals("repoName", matcher.group("package"));
+    }
+
+    @Test
+    public void pullInPublicRepo() throws MojoExecutionException {
+        UnpackBowerDependencyMojo testMojo = new UnpackBowerDependencyMojo();
+        File outputDir = new File("target/test-output/UnpackBowerDependencyMojoTest#pullInPublicRepo");
+        outputDir.mkdirs();
+        testMojo.setOutputDir(outputDir);
+        List<BowerDependency> dependencies = new ArrayList<>();
+        BowerDependency bowerDependency = new BowerDependency();
+        bowerDependency.setName("kaazing-client-javascript-bridge");
+        bowerDependency.setVersion("[5.0.0,5.1.0]");
+        bowerDependency.setLocation("https://github.com/kaazing/bower-kaazing-client-javascript-bridge.git");
+        dependencies.add(bowerDependency);
+        testMojo.setBowerDependencies(dependencies);
+        testMojo.execute();
     }
 }
