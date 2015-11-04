@@ -105,16 +105,17 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
             preserveFiles = new ArrayList<String>();
             preserveFiles.add("README.md");
             preserveFiles.add("bower.json");
+            preserveFiles.add(".git");
 
         }
         for (File file : repoDir.listFiles()) {
             if (!preserveFiles.contains(file.getName())) {
                 file.delete();
-            }
-            try {
-                repo.rm().addFilepattern(file.getName()).call();
-            } catch (GitAPIException e) {
-                throw new MojoExecutionException("Failed to reset repo", e);
+                try {
+                    repo.rm().addFilepattern(file.getName()).call();
+                } catch (GitAPIException e) {
+                    throw new MojoExecutionException("Failed to reset repo", e);
+                }
             }
         }
 
