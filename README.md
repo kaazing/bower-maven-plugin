@@ -11,7 +11,7 @@ Usage to unpack dependencies into target/bower-dependencies
 ```xml
 <plugin>
     <groupId>org.kaazing</groupId>
-    <artifactId>unpack-bower-dependency-maven-plugin</artifactId>
+    <artifactId>bower-maven-plugin</artifactId>
     <version>1.0.1</version>
     <executions>
         <execution>
