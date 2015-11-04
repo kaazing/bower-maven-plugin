@@ -5,10 +5,10 @@
 [build-status-image]: https://travis-ci.org/kaazing/bower-maven-plugin.svg?branch=develop
 [build-status]: https://travis-ci.org/kaazing/bower-maven-plugin
 
-Plugin to handle bower dependencies in Maven
+Plugin to handle bower dependencies in Maven, (1st example) or to upload bower artifacts (2nd example)
 
 Usage to unpack dependencies into target/bower-dependencies
-```
+```xml
 <plugin>
     <groupId>org.kaazing</groupId>
     <artifactId>unpack-bower-dependency-maven-plugin</artifactId>
@@ -39,5 +39,42 @@ Usage to unpack dependencies into target/bower-dependencies
             </bowerDependency>
         </bowerDependencies>
     </configuration>
+</plugin>
+```
+
+usage to upload artifacts
+```xml
+<plugin>
+    <groupId>org.kaazing</groupId>
+    <artifactId>bower-maven-plugin</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>install</phase>
+            <goals>
+                <goal>upload</goal>
+            </goals>
+            <configuration>
+                <gitBowerUrl>https://github.com/kaazing/gateway-javascript</gitBowerUrl>
+                <includeBaseDir>${project.build.directory}/verify/lib</includeBaseDir>
+                <password>${password}</password>
+                <username>${username}</username>
+                <includes>
+                    <include>Loader.swf</include>
+                    <include>PostMessage.js</include>
+                    <include>ServerSentEvents-debug.js</include>
+                    <include>WebSocket-debug.js</include>
+                    <include>XMLHttpRequest-debug.js</include>
+                    <include>PostMessage-debug.js</include>
+                    <include>PostMessageBridge.html</include>
+                    <include>ServerSentEvents.js</include>
+                    <include>WebSocket.js</include>
+                    <include>XMLHttpRequest.js</include>
+                </includes>
+            </configuration>
+        </execution>
+    </executions>
 </plugin>
 ```
