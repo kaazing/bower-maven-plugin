@@ -42,7 +42,7 @@ Usage to unpack dependencies into target/bower-dependencies
 </plugin>
 ```
 
-usage to upload artifacts
+Usage to upload artifacts
 ```xml
 <plugin>
     <groupId>org.kaazing</groupId>
