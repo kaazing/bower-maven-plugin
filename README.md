@@ -52,7 +52,7 @@ Usage to upload artifacts
     <executions>
         <execution>
             <id>deploy</id>
-            <phase>install</phase>
+            <phase>deploy</phase>
             <goals>
                 <goal>upload</goal>
             </goals>
