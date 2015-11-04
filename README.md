@@ -2,8 +2,8 @@
 
 [![Build Status][build-status-image]][build-status]
 
-[build-status-image]: https://travis-ci.org/kaazing/bower-dependency-maven-plugin.svg?branch=develop
-[build-status]: https://travis-ci.org/kaazing/bower-dependency-maven-plugin
+[build-status-image]: https://travis-ci.org/kaazing/bower-maven-plugin.svg?branch=develop
+[build-status]: https://travis-ci.org/kaazing/bower-maven-plugin
 
 Plugin to handle bower dependencies in Maven
 
