@@ -1,4 +1,4 @@
-# Kaazing bower-dependency-maven-plugin
+# bower-maven-plugin
 
 [![Build Status][build-status-image]][build-status]
 
