@@ -12,7 +12,7 @@ Usage to unpack dependencies into target/bower-dependencies
 <plugin>
     <groupId>org.kaazing</groupId>
     <artifactId>bower-maven-plugin</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
     <executions>
         <execution>
             <goals>
@@ -47,7 +47,7 @@ Usage to upload artifacts
 <plugin>
     <groupId>org.kaazing</groupId>
     <artifactId>bower-maven-plugin</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.0</version>
 
     <executions>
         <execution>
