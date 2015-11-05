@@ -57,6 +57,11 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
 
     /**
      * @parameter
+     */
+    public String directoryToInclude;
+
+    /**
+     * @parameter
      * default-value = "${project.build.directory}
      */
     public String includeBaseDir;
@@ -71,11 +76,6 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
      * default-value = "${project.build.directory}/bower-upload")
      */
     public String outputDir;
-
-    /**
-     * @parameter
-     */
-    public String hmm;
 
     /**
      * @parameter
@@ -139,6 +139,30 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
                 throw new MojoExecutionException("Failed to add included file", e);
             }
         }
+
+        if (directoryToInclude != null && !directoryToInclude.equals("")) {
+            File includedDir = new File(directoryToInclude);
+            if (!includedDir.exists() && includedDir.isDirectory()) {
+                throw new MojoExecutionException("Included directory \"" + directoryToInclude + "\" does not exist");
+            }
+            for (File includedFile : includedDir.listFiles()) {
+                String include = includedFile.getName();
+                if (includedFile.isDirectory()) {
+                    throw new MojoExecutionException("Included files can not be directory: " + includedFile);
+                }
+                try {
+                    Files.copy(includedFile.toPath(), new File(outputDir, include).toPath());
+                } catch (IOException e) {
+                    throw new MojoExecutionException("Failed to copy included resource", e);
+                }
+                try {
+                    repo.add().addFilepattern(include).call();
+                } catch (GitAPIException e) {
+                    throw new MojoExecutionException("Failed to add included file", e);
+                }
+            }
+        }
+
         try {
             repo.commit().setMessage("Added files for next release of " + version).call();
         } catch (GitAPIException e) {
