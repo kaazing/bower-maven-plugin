@@ -88,7 +88,8 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
     public String password;
 
     /**
-     * Preserve files in repo, if null or emtpy defaults to README.md and bower.json
+     * Preserve files in repo, if null or emtpy defaults to:
+     *    README.md, bower.json, package.json, and .git
      * Note: http://stackoverflow.com/questions/1659087/how-to-configure-defaults-for-a-parameter-with-multiple-values-for-a-maven-plugin
      * If you want to delete all just add a dummy file to the list in the config
      * @parameter
@@ -105,6 +106,7 @@ public class UploadBowerArtifactMojo extends AbstractMojo {
             preserveFiles = new ArrayList<String>();
             preserveFiles.add("README.md");
             preserveFiles.add("bower.json");
+            preserveFiles.add("package.json");
             preserveFiles.add(".git");
 
         }
